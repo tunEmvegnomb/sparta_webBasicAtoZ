@@ -490,13 +490,23 @@
             // console.log(mise_list[i])
         }
 
+        let count = 0
+        function hey() {
+            count += 1
+            if (count % 2 == 0){
+                alert('짝수입니다!')
+            }
+            else {
+                alert('홀수입니다!')
+            }
+        }
     </script>
 </head>
 
 <body>
 <div class="mytitle">
     <h1>내 생애 최고의 영화들</h1>
-    <button>영화 기록하기🔥</button>
+    <button onclick="hey()">영화 기록하기🔥</button>
 </div>
 <div class="mypost">
     <div class="form-floating mb-3">
