@@ -93,16 +93,46 @@
         }
     </style>
     <script>
-        function hey() {
-            alert('안녕!');
+        function sum(a,b) {
+            console.log('계산을 하자')
+            return a+b
         }
+
+        function is_adult(age) {
+            if (age >20){
+                alert('성인입니다')
+            }
+            else {alert('청소년입니다')}
+        }
+
+        let a_list = ['사과', '배', '감', '딸기']
+        for (let i=0; i<a_list.length; i++){
+            // console.log(a_list[i])
+        }
+
+        let scores = [
+            {'name':'철수', 'score':90},
+            {'name':'영희', 'score':85},
+            {'name':'민수', 'score':70},
+            {'name':'형준', 'score':50},
+            {'name':'기남', 'score':68},
+            {'name':'동희', 'score':30},
+        ]
+
+        for (i = 0; i <scores.length; i++){
+            if (scores[i]['score']>70){
+                console.log(scores[i]['name'])
+            }
+
+        }
+
     </script>
 </head>
 
 <body>
 <div class="mytitle">
     <h1>내 생애 최고의 영화들</h1>
-    <button onclick="hey()">영화 기록하기🔥</button>
+    <button>영화 기록하기🔥</button>
 </div>
 <div class="mypost">
     <div class="form-floating mb-3">
