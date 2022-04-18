@@ -12,6 +12,9 @@
 div.question-box {
 margin: 10px 0 20px 0;
 }
+.red {
+    color: red;
+}
 </style>
 
 <script>
@@ -28,7 +31,16 @@ function q1() {
                     let gu_name = rows[i]['MSRSTE_NM']
                     let gu_mise = rows[i]['IDEX_MVL']
                     console.log(gu_name,gu_mise)
-                    let temp_html = `<li>${gu_name} : ${gu_mise}</li>`
+
+                    let temp_html = ``
+
+                    if (gu_mise>80) {
+                        temp_html = `<li class="red">${gu_name} : ${gu_mise}</li>`
+                    }
+                    else {
+                        temp_html = `<li>${gu_name} : ${gu_mise}</li>`
+                    }
+
                     $('#names-q1').append(temp_html)
                 }
             }
