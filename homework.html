@@ -2,21 +2,113 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 
-<title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        .mytitle {
+            background-color: green;
+
+            width: 100%;
+            height: 250px;
+
+            /* div 이미지 넣기, 배경 어둡게 하기 */
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://w.namu.la/s/90d8950a3732dfab195fccba56cd78eeb65e9b4b6210ec8df1f5d3b3983330f83673c328bd1600193bfded77937535f13ffca70d33184faeebf85a395758a9ae4802511060a03070b632a032fb2b3a151fe5f52eb2545c935c6e08d9deeaab54");
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            /* 아이템을 수평, 수직 가운데 정렬하는 코드 */
+            display: flex;
+            flex-direction: column;
+            /* 방향을 row로 바꾸면 한 줄로 나온다! */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mypost {
+            max-width: 500px;
+            width: 95%;
+
+            margin: 20px auto 50px auto;
+
+            box-shadow: 0px 0px 3px 0px grey;
+
+            padding: 20px;
+        }
+
+        .mybtn {
+            margin: 20px 0px 20px 0px;
+        }
+
+        .input-quote {
+            box-shadow: 0px 0px 3px 0px grey;
+            margin-bottom: 20px;
+        }
+
+        .wrap-quote {
+            max-width: 500px;
+            width: 95%;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
-<h1>이걸로 시작해보죠!</h1>
+<div class="mytitle">
+    <h1>임세모 팬명록</h1>
+</div>
+<div class="mypost">
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">닉네임</label>
+    </div>
+
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea">응원댓글</label>
+    </div>
+    <div class="mybtn">
+        <button type="button" class="btn btn-dark">응원 남기기</button>
+    </div>
+</div>
+<div class="wrap-quote">
+    <div class="card-body input-quote">
+        <blockquote class="blockquote mb-0">
+            <p>건강하세모 잘 듣고 있어요!</p>
+            <footer class="blockquote-footer">식빵맨</footer>
+        </blockquote>
+    </div>
+    <div class="card-body input-quote">
+        <blockquote class="blockquote mb-0">
+            <p>건강하세모 잘 듣고 있어요!</p>
+            <footer class="blockquote-footer">식빵맨</footer>
+        </blockquote>
+    </div>
+    <div class="card-body input-quote">
+        <blockquote class="blockquote mb-0">
+            <p>건강하세모 잘 듣고 있어요!</p>
+            <footer class="blockquote-footer">식빵맨</footer>
+        </blockquote>
+    </div>
+</div>
 </body>
 
 </html>
