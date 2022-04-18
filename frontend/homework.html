@@ -68,11 +68,27 @@
             margin: auto;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function (response) {
+                    let val_temp = response['temp']
+                    console.log(val_temp)
+                    $('#temp').text(val_temp)
+                }
+            })
+        });
+
+    </script>
 </head>
 
 <body>
 <div class="mytitle">
     <h1>임세모 팬명록</h1>
+    <h5>현재 기온: <span id="temp"></span>도</h5>
 </div>
 <div class="mypost">
     <div class="form-floating mb-3">
