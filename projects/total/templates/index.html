@@ -54,6 +54,7 @@
             color: white;
             font-weight: bold;
         }
+
     </style>
 </head>
 
@@ -69,18 +70,17 @@
         <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
-                Accordion Item #1
+                #1 : 나의 버킷리스트
             </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-                plugin adds the appropriate classes that we use to style each element. These classes control the overall
-                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                within the <code>.accordion-body</code>, though the transition does limit overflow.
+                <strong>나의 버킷리스트 페이지</strong> 나의 버킷리스트 페이지는 버킷리스트 입력 창과,
+                추가하기 버튼을 제공하며, 추가하기 버튼을 누르는 것으로 데이터베이스에 추가되어 페이지에 불러와집니다.
+                완료를 누르면, 취소선이 그어집니다.
             </div>
+            <button onclick=location.href="/bucket" type="button" class="btn btn-outline-dark mybtn">GO PAGE</button>
         </div>
     </div>
     <div class="accordion-item">
@@ -99,6 +99,7 @@
                 custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
                 within the <code>.accordion-body</code>, though the transition does limit overflow.
             </div>
+            <button type="button" class="btn btn-outline-dark mybtn">GO PAGE</button>
         </div>
     </div>
     <div class="accordion-item">
@@ -117,6 +118,7 @@
                 custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
                 within the <code>.accordion-body</code>, though the transition does limit overflow.
             </div>
+            <button type="button" class="btn btn-outline-dark mybtn">GO PAGE</button>
         </div>
     </div>
     <div class="accordion-item">
@@ -135,6 +137,7 @@
                 custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
                 within the <code>.accordion-body</code>, though the transition does limit overflow.
             </div>
+            <button type="button" class="btn btn-outline-dark mybtn">GO PAGE</button>
         </div>
     </div>
 </div>
