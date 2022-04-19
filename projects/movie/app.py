@@ -1,17 +1,47 @@
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
-@app.route('/')
+import requests
+from bs4 import BeautifulSoup
+
+from pymongo import MongoClient
+client = MongoClient('mongodb+srv://test:sparta@cluster0.8yqbf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+db = client.nabacamp
+
+@app.route('/movie')
 def home():
     return render_template('movie.html')
 
-@app.route("/movie", methods=["POST"])
+@app.route("/movie/post", methods=["POST"])
 def movie_post():
-    sample_receive = request.form['sample_give']
-    print(sample_receive)
-    return jsonify({'msg':'POST 연결 완료!'})
+    url_receive = request.form['url_give']
+    star_receive = request.form['star_give']
+    comment_receive = request.form['comment_give']
 
-@app.route("/movie", methods=["GET"])
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+    data = requests.get(url_receive, headers=headers)
+
+    soup = BeautifulSoup(data.text, 'html.parser')
+
+    # 여기에 코딩을 해서 meta tag를 먼저 가져와보겠습니다.
+
+    # print(soup)
+
+    title = soup.select_one('meta[property="og:title"]')['content']
+    image = soup.select_one('meta[property="og:image"]')['content']
+    desc = soup.select_one('meta[property="og:description"]')['content']
+
+    doc = {
+        'title': title,
+        'image': image,
+        'desc': desc
+    }
+    db.metaMovie.insert_one(doc)
+
+    return jsonify({'result':'success','msg':'DB 저장완료'})
+
+@app.route("/movie/get", methods=["GET"])
 def movie_get():
     return jsonify({'msg':'GET 연결 완료!'})
 
