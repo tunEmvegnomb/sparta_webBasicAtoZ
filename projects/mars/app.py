@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/mars')
 def home():
     return render_template('mars.html')
 
@@ -16,8 +16,7 @@ def web_mars_post():
     #       이름, 주소, 평수 데이터
     #       name, address, size give
     #   API 처리
-    #       받아온 사용자 요청값을 딕셔너리로 변수 지정
-    #       데이터베이스에 저장
+    #       받아온 사용자 요청값을 딕셔너리로 변수 지정정    #       데이터베이스에 저장
     #   응답 데이터
     #       주문이 완료되었습니다! 메시지 리턴
     #       'result': 'success', 'msg': '주문이 완료되었습니다'
