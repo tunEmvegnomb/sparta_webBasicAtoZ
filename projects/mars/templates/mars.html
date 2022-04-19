@@ -59,7 +59,7 @@
         function show_order() {
             $.ajax({
                 type: 'GET',
-                url: '/mars',
+                url: '/mars/get',
                 data: {},
                 success: function (response) {
                     alert(response['msg'])
