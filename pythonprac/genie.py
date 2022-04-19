@@ -8,3 +8,15 @@ soup = BeautifulSoup(data.text, 'html.parser')
 
 # 코딩 시작
 # print(soup)
+
+# 순위
+#body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.number
+
+# 이름
+#body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.title.ellipsis
+
+# 가수
+#body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.artist.ellipsis
+
+tr = soup.select_one('#body-content > div.newest-list > div > table > tbody > tr')
+print(tr)
