@@ -96,15 +96,23 @@
                 success: function (response) {
                     // alert(response["msg"])
                     bucket_list = response['bucket_list']
-                    for(i=0; i<bucket_list.length; i++){
+                    for (i = 0; i < bucket_list.length; i++) {
                         let num = bucket_list[i]['num']
                         let bucket = bucket_list[i]['bucket']
                         let done = bucket_list[i]['done']
 
-                        let temp_html =`<li>
+                        let temp_html = ``
+
+                        if (done == 0) {
+                            temp_html = `<li>
                                             <h2>✅ ${bucket}</h2>
-                                            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-primary">완료!</button>
+                                            <button onclick="done_bucket(${num})" type="button" class="btn btn-outline-primary">완료!</button>
                                         </li>`
+                        } else {
+                            temp_html = `<li>
+                                            <h2 class="done">✅ ${bucket}</h2>
+                                        </li>`
+                        }
                         $('#bucket-list').append(temp_html)
                     }
                 }
@@ -116,7 +124,7 @@
             $.ajax({
                 type: "POST",
                 url: "/bucket/post",
-                data: {bucket_give:bucket},
+                data: {bucket_give: bucket},
                 success: function (response) {
                     alert(response["msg"])
                     window.location.reload()
