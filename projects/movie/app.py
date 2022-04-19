@@ -35,7 +35,9 @@ def movie_post():
     doc = {
         'title': title,
         'image': image,
-        'desc': desc
+        'desc': desc,
+        'star': star_receive,
+        'comment': comment_receive
     }
     db.metaMovie.insert_one(doc)
 
