@@ -39,7 +39,18 @@ def web_mars_post():
 
 @app.route("/mars/get", methods=["GET"])
 def web_mars_get():
-    return jsonify({'result': 'success', 'msg': 'GET 연결 완료!'})
+    # API 설계
+    #
+    #   사용자요청
+    #       없음
+    #   API 처리
+    #       mars DB 데이터 전체 가져오기
+    #   응답 데이터
+    #       mars_data
+
+    mars_data = list(db.find({},{'_id':False}))
+
+    return jsonify({'result': 'success', 'all_data': mars_data})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
