@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
+from pymongo import MongoClient
+client = MongoClient('mongodb+srv://test:sparta@cluster0.8yqbf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+db = client.nabacamp
+
 @app.route('/fan')
 def home():
     return render_template('fan.html')
