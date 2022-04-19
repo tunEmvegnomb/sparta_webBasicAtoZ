@@ -62,7 +62,19 @@
                 url: '/mars/get',
                 data: {},
                 success: function (response) {
-                    alert(response['msg'])
+                    // alert(response['msg'])
+                    // console.log(response)
+                    let mars_data = response['all_data']
+                    console.log('GET 연결 성공!',mars_data)
+                    for(i=0; i<mars_data.length; i++){
+                        let name = mars_data[i]['name']
+                        let address = mars_data[i]['address']
+                        let size = mars_data[i]['size']
+                        console.log(name, address, size)
+
+                        
+                    }
+
                 }
             });
         }

@@ -48,7 +48,7 @@ def web_mars_get():
     #   응답 데이터
     #       mars_data
 
-    mars_data = list(db.find({},{'_id':False}))
+    mars_data = list(db.mars.find({},{'_id':False}))
 
     return jsonify({'result': 'success', 'all_data': mars_data})
 
