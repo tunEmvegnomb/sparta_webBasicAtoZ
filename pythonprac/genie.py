@@ -18,5 +18,13 @@ soup = BeautifulSoup(data.text, 'html.parser')
 # 가수
 #body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.artist.ellipsis
 
-tr = soup.select_one('#body-content > div.newest-list > div > table > tbody > tr')
-print(tr)
+tr = soup.select('#body-content > div.newest-list > div > table > tbody > tr')
+# print(tr)
+
+for output in tr:
+    rank = output.select_one('td.number')
+    if rank is not None:
+        rank = rank.text[0:2]
+        title = output.select_one('td.info > a.title.ellipsis').text.strip()
+        artist = output.select_one('td.info > a.artist.ellipsis').text
+    print(rank, title, artist)
