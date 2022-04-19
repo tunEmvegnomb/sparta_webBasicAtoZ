@@ -17,12 +17,33 @@
             width: 95%;
             margin: 200px auto;
         }
+
+        .header_banner{
+            /* div 이미지 넣기, 배경 어둡게 하기 */
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("");
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+
+            /* 아이템을 수평, 수직 가운데 정렬하는 코드 */
+            display: flex;
+            flex-direction: column;
+            /* 방향을 row로 바꾸면 한 줄로 나온다! */
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
 
 </body>
+<div class="header_banner">
+    <h1>Portfolio | Yungsang Hwang</h1>
+
+</div>
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
