@@ -8,7 +8,7 @@ def home():
     return render_template('mars.html')
 
 
-@app.route("/mars", methods=["POST"])
+@app.route("/mars/post", methods=["POST"])
 def web_mars_post():
     # API 설계
     #
@@ -27,7 +27,7 @@ def web_mars_post():
     return jsonify({'result': 'success', 'msg': '주문이 완료되었습니다'})
 
 
-@app.route("/mars", methods=["GET"])
+@app.route("/mars/get", methods=["GET"])
 def web_mars_get():
     return jsonify({'msg': 'GET 연결 완료!'})
 
