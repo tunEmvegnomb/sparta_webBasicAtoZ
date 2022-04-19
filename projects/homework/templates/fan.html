@@ -93,12 +93,28 @@
         }
 
         function show_comment() {
+            $('#comment-list').empty()
             $.ajax({
                 type: "GET",
                 url: "/fan/get",
                 data: {},
                 success: function (response) {
-                    alert(response["msg"])
+                    // alert(response["msg"])
+                    all_data = response['all_data']
+                    for(i=0; i<all_data.length; i++){
+                        let nickname = all_data[i]['nickname']
+                        let comment = all_data[i]['comment']
+                        let temp_html=`<div class="card">
+                                            <div class="card-body">
+                                                <blockquote class="blockquote mb-0">
+                                                    <p>${comment}</p>
+                                                    <footer class="blockquote-footer">${nickname}</footer>
+                                                </blockquote>
+                                            </div>
+                                        </div>`
+
+                        $('#comment-list').append(temp_html)
+                    }
                 }
             });
         }
