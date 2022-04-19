@@ -22,9 +22,17 @@ def homework_post():
     #   데이터 응답
     #       메시지 : 저장되었습니다!
     #       'msg' : '저장되었습니다!'
-    sample_receive = request.form['sample_give']
-    print(sample_receive)
-    return jsonify({'msg':'POST 연결 완료!'})
+
+    nickname_receive = request.form['nickname_give']
+    comment_receive = request.form['comment_give']
+
+    doc = {
+        'nickname': nickname_receive,
+        'comment': comment_receive
+    }
+    db.fan.insert_one(doc)
+
+    return jsonify({'result': 'success','msg':'저장되었습니다'})
 
 @app.route("/fan/get", methods=["GET"])
 def homework_get():
