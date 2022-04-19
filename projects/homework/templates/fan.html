@@ -79,10 +79,12 @@
         }
 
         function save_comment() {
+            let nickname = $('#url').val()
+            let comment = $('#comment').val()
             $.ajax({
                 type: 'POST',
                 url: '/fan/post',
-                data: {sample_give: '데이터전송'},
+                data: {nickname_give: nickname, comment_give: comment},
                 success: function (response) {
                     alert(response['msg'])
                     window.location.reload()
