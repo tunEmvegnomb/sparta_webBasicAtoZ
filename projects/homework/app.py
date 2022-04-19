@@ -11,6 +11,17 @@ def home():
 
 @app.route("/fan/post", methods=["POST"])
 def homework_post():
+    # POST API 설계
+    #
+    #   사용자 요청
+    #       닉네임, 응원댓글 요청
+    #       nickname_give, comment_give
+    #   API 처리
+    #       사용자 요청 값을 딕셔너리 형태로 데이터베이스에 저장
+    #       데이터베이스 이름 : fan
+    #   데이터 응답
+    #       메시지 : 저장되었습니다!
+    #       'msg' : '저장되었습니다!'
     sample_receive = request.form['sample_give']
     print(sample_receive)
     return jsonify({'msg':'POST 연결 완료!'})
