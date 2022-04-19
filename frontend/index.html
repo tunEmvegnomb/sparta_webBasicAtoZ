@@ -503,19 +503,45 @@
         //     }
         // }
 
-        $.ajax({
-            type: "GET",
-            url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
-            data: {},
-            success: function (response) {
-                rows = response['RealtimeCityAir']['row']
-                for (let i=0; i<rows.length; i++){
-                    let gu_name = rows[i]['MSRSTE_NM']
-                    let gu_mise = rows[i]['IDEX_MVL']
-                    console.log(gu_name,gu_mise)
-                }
-            }
+        $(document).ready(function () {
+            listing()
         })
+
+        function listing() {
+            $('#card-box').empty()
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/web/api/movie",
+                data: {},
+                success: function (response) {
+                    movies = response['movies']
+                    for (i = 0; i < movies.length; i++) {
+                        let comment = movies[i]['comment']
+                        let desc = movies[i]['desc']
+                        let image = movies[i]['image']
+                        let star = movies[i]['star']
+                        let title = movies[i]['title']
+
+                        // console.log(comment, desc, image, star, title)
+
+                        let temp_html = `<div class="col">
+                                            <div class="card">
+                                                <img src="${image}"
+                                                     class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${title}</h5>
+                                                    <p class="card-text">${desc}</p>
+                                                    <p>${star}</p>
+                                                    <p class="mycomment">${comment}</p>
+                                                </div>
+                                            </div>
+                                        </div>`
+                        $('#card-box').append(temp_html)
+                    }
+                }
+            })
+        }
+
 
         function open_box() {
             alert('박스 열기')
