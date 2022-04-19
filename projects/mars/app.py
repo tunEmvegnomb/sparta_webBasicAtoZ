@@ -23,7 +23,14 @@ def web_mars_post():
     name_receive = request.form['name_give']
     address_receive = request.form['address_give']
     size_receive = request.form['size_give']
-    # print(sample_receive)
+    print('사용자 요청값 확인: ', name_receive, address_receive, size_receive)
+
+    doc = {
+        'name': name_receive,
+        'address': address_receive,
+        'size': size_receive
+    }
+    db.mars.insert_one(doc)
     return jsonify({'result': 'success', 'msg': '주문이 완료되었습니다'})
 
 
