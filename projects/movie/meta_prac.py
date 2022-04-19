@@ -10,4 +10,9 @@ soup = BeautifulSoup(data.text, 'html.parser')
 
 # 여기에 코딩을 해서 meta tag를 먼저 가져와보겠습니다.
 
-print(soup)
+# print(soup)
+
+title = soup.select_one('meta[property="og:title"]')['content']
+image = soup.select_one('meta[property="og:image"]')['content']
+desc = soup.select_one('meta[property="og:description"]')['content']
+print(title,image,desc)
