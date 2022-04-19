@@ -57,6 +57,7 @@
         });
 
         function show_order() {
+            $('.table > tbody').empty()
             $.ajax({
                 type: 'GET',
                 url: '/mars/get',
@@ -72,7 +73,13 @@
                         let size = mars_data[i]['size']
                         console.log(name, address, size)
 
-                        
+                        let temp_html=`<tr>
+                                            <td>${name}</td>
+                                            <td>${address}</td>
+                                            <td>${size}</td>
+                                        </tr>`
+
+                        $('.table > tbody').append(temp_html)
                     }
 
                 }
