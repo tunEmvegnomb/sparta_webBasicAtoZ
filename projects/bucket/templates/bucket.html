@@ -136,9 +136,10 @@
             $.ajax({
                 type: "POST",
                 url: "/bucket/done",
-                data: {sameple_give: '데이터전송'},
+                data: {num_give:num},
                 success: function (response) {
-                    alert(response["msg"])
+                    // alert(response["msg"])
+                    window.location.reload()
                 }
             });
         }
