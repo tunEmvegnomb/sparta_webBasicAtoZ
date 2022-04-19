@@ -88,23 +88,38 @@
         });
 
         function show_bucket() {
+            $('#bucket-list').empty()
             $.ajax({
                 type: "GET",
                 url: "/bucket/get",
                 data: {},
                 success: function (response) {
-                    alert(response["msg"])
+                    // alert(response["msg"])
+                    bucket_list = response['bucket_list']
+                    for(i=0; i<bucket_list.length; i++){
+                        let num = bucket_list[i]['num']
+                        let bucket = bucket_list[i]['bucket']
+                        let done = bucket_list[i]['done']
+
+                        let temp_html =`<li>
+                                            <h2>✅ ${bucket}</h2>
+                                            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-primary">완료!</button>
+                                        </li>`
+                        $('#bucket-list').append(temp_html)
+                    }
                 }
             });
         }
 
         function save_bucket() {
+            let bucket = $('#bucket').val()
             $.ajax({
                 type: "POST",
                 url: "/bucket/post",
-                data: {sameple_give: '데이터전송'},
+                data: {bucket_give:bucket},
                 success: function (response) {
                     alert(response["msg"])
+                    window.location.reload()
                 }
             });
         }
