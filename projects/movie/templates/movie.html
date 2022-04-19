@@ -93,6 +93,7 @@
         });
 
         function listing() {
+            $('#cards-box').empty()
             $.ajax({
                 type: 'GET',
                 url: '/movie/get',
@@ -100,13 +101,36 @@
                 success: function (response) {
                     // alert(response['msg'])
                     console.log(response['all_db'])
+                    let metamovie = response['all_db']
+                    for(i=0; i<metamovie.length; i++){
+                        let image = metamovie[i]['image']
+                        let title = metamovie[i]['title']
+                        let desc = metamovie[i]['desc']
+                        let star = metamovie[i]['star']
+                        let star_image = '⭐'.repeat(star)
+                        let comment = metamovie[i]['comment']
+
+                        let temp_html = `<div class="col">
+                                            <div class="card h-100">
+                                                <img src="${image}"
+                                                     class="card-img-top">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${title}</h5>
+                                                    <p class="card-text">${desc}</p>
+                                                    <p>${star_image}</p>
+                                                    <p class="mycomment">${comment}</p>
+                                                </div>
+                                            </div>
+                                        </div>`
+                        $('#cards-box').append(temp_html)
+                    }
                 }
             })
         }
 
         function posting() {
             let url = $('#url').val()
-            let star = $('#star').val()
+            let star = $('#star').text()
             let comment = $('#comment').val()
             $.ajax({
                 type: 'POST',
@@ -140,7 +164,7 @@
         <label>영화URL</label>
     </div>
     <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">별점</label>
+        <label class="input-group-text" for="star">별점</label>
         <select class="form-select" id="star">
             <option selected>-- 선택하기 --</option>
             <option value="1">⭐</option>
@@ -152,7 +176,7 @@
     </div>
     <div class="form-floating">
         <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
-        <label for="floatingTextarea2">코멘트</label>
+        <label for="comment">코멘트</label>
     </div>
     <div class="mybtns">
         <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
